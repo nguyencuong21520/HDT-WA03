@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello</h1>
-    <h1>Thêmmmmm</h1>
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            background: #00043c;
+            color: #fff;
+            font: normal 600 10vw/1.5 Kanit, sans-serif;
+        }
 
-    <h1>Thêm 1 dòng nữa</h1>
-    <h1>ábasjdjk</h1>
+        .splitting .char {
+            animation: slide-in 3s cubic-bezier(1, 0, 0, 1) infinite;
+            animation-delay: calc(60ms * var(--char-index));
+        }
+
+        @keyframes slide-in {
+            from {
+                letter-spacing: 16px;
+                transform: translate(6em, calc(50vh + 50%)) scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                letter-spacing: 0px;
+                transform: translateX(0em) scale(1);
+                opacity: 1;
+            }
+
+            to {
+                letter-spacing: 16px;
+                transform: translate(-6em, calc(50vh + 50%)) scale(0);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div data-splitting>Splitting</div>
+    <script>
+        Splitting();
+    </script>
 </body>
+
 </html>
