@@ -124,12 +124,27 @@ a{
     height: 2px;
     background-color: #e67e22;
     display: block;
-
+    margin: 0px auto;
+    margin-top: 15px;
 }
-/* .test{
-    width: 100px;
-    height: 3px;
-    background-color: #e67e22;
-    margin: 15px auto;
-
-} */
+.detail{
+    font-size: 120%;
+    line-height: 150%;
+    font-size: 130%;
+}
+.box i {
+    font-size: 250%;
+    color: #cf6d17;
+}
+.space-60{
+    height: 60px;
+}
+.space-80{
+    height: 80px;
+}
+.box p{
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    line-height: 150%;
+    font-size: 120%;
+}
