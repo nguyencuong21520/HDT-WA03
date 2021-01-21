@@ -148,3 +148,36 @@ a{
     line-height: 150%;
     font-size: 120%;
 }
+ul{
+    list-style: none;
+}
+.ekb li{
+    width: 25%;
+    float: left;
+    overflow: hidden;
+}
+.ekb li img{
+    width: 100%;
+    background-color: black;
+    height: auto;
+    opacity: 0.9;
+    transform: scale(1.15);
+    transition: transform 0.5s, opacity 0.5s;
+}
+.ekb li img:hover{
+    opacity: 1;
+    transform: scale(1.05);
+}
+.nav-black{
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    display: none;
+}
+.nav-black img {
+    height: 50px;
+    margin-left: 50px;
+}
+.active{
+    display: block !important;
+}

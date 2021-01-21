@@ -106,6 +106,9 @@
                 </ul>
             </div>
         </nav>
+        <div class="nav-black">
+            <img src="./img/logo.png" alt="">
+        </div>
         <div class="header-content">
             <h1>Goodbye junk food <br> Hello super healthy meals</h1>
             <a href="" class="btn_ btn-full">I’m hungry</a>
@@ -151,16 +154,16 @@
 
     <div class="p2">
       <ul class="ekb">
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
+          <li><img src="./img/1.jpg" alt=""></li>
+          <li><img src="./img/2.jpg" alt=""></li>
+          <li><img src="./img/3.jpg" alt=""></li>
+          <li><img src="./img/4.jpg" alt=""></li>
       </ul>
       <ul class="ekb">
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
-          <li><img src="" alt=""></li>
+          <li><img src="./img/5.jpg" alt=""></li>
+          <li><img src="./img/6.jpg" alt=""></li>
+          <li><img src="./img/7.jpg" alt=""></li>
+          <li><img src="./img/8.jpg" alt=""></li>
       </ul>
     </div>
 
@@ -205,8 +208,17 @@
         </ul>
     </div> -->
 
-
     <script src="./main.js "></script>
+    <script>
+        let navbar = document.querySelector('.nav-black')
+        window.addEventListener('scroll',()=>{
+            if(document.body.scrollTop > 800 || document.documentElement.scrollTop >800){
+                navbar.classList.add('active')
+            }else{
+                navbar.classList.remove('active')
+            }
+        })
+    </script>
 </body>
 
 </html>
