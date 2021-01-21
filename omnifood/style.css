@@ -109,3 +109,27 @@ a{
     background-color: #cf6d17;
     transition: background-color 0.2s, border 0.2s, color 0.2s;
 }
+
+
+.title{
+    width: 70%;
+    margin: auto;
+}
+.p1 >*{
+    color: #555555;
+}
+.title h1:after{
+    content:  "";
+    width: 100px;
+    height: 2px;
+    background-color: #e67e22;
+    display: block;
+
+}
+/* .test{
+    width: 100px;
+    height: 3px;
+    background-color: #e67e22;
+    margin: 15px auto;
+
+} */
