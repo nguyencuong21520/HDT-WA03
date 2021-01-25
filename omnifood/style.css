@@ -180,4 +180,6 @@ ul{
 }
 .active{
     display: block !important;
+    width: 100%;
+    z-index: 22;
 }
