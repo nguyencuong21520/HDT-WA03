@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css" rel="stylesheet">
     <title>Document</title>
     <style>
         *{
@@ -29,9 +30,10 @@
 </head>
 
 <body>
+    <div class="nav">
+       <span id="count"></span> <i class="far fa-cart-plus"></i>
+    </div>
     <div class="container">
-
-
     </div>
 
     <script>
@@ -40,55 +42,36 @@
                 img: "https://cf.shopee.vn/file/4418295419e0c5acfb81ea8d0d5b2602_tn",
                 name: "Bạch tuộc",
                 des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price: 50
+                price: 50,
+                id: 1
 
             },
             {
                 img:"https://cf.shopee.vn/file/feb452618b3cc4e9a7448169145e0cec_tn",
                 name: "Balo Nam",
                 des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:30
+                price:30,
+                id: 2
             },
             {
                 img:"https://cf.shopee.vn/file/3946c633243b9874f2954b693a41c3a7_tn",
                 name:"Vali Màu Hồng",
                 des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:90
+                price:90,
+                id: 3
             },
             {
                 img:"https://cf.shopee.vn/file/72a6135cfe40e20c4787018291f97974_tn",
                 name:"Ô tô đồ chơi",
                 des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:40
+                price:40,
+                id: 4
             },
-            {
-                img: "https://cf.shopee.vn/file/4418295419e0c5acfb81ea8d0d5b2602_tn",
-                name: "Bạch tuộc",
-                des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price: 50
-
-            },
-            {
-                img:"https://cf.shopee.vn/file/feb452618b3cc4e9a7448169145e0cec_tn",
-                name: "Balo Nam",
-                des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:30
-            },
-            {
-                img:"https://cf.shopee.vn/file/3946c633243b9874f2954b693a41c3a7_tn",
-                name:"Vali Màu Hồng",
-                des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:90
-            },
-            {
-                img:"https://cf.shopee.vn/file/72a6135cfe40e20c4787018291f97974_tn",
-                name:"Ô tô đồ chơi",
-                des:"alo cái này hay lắm nè mua đi mua đi alo alo alo alo alo",
-                price:40
-            }
         ]
+
+        let dataToLocal = []
+        let count = 0
             let dom = document.querySelector('.container')
-            console.log(dom)
             for(let i of data){
                 let html = `<div class="cart">
                     <img src="${i.img}" alt="">
@@ -96,11 +79,23 @@
                     <p>${i.des}</p>
                     <div class="footer">
                         <p>${i.price}</p>
-                        <button>Mua</button>
+                        <button class="alo${i.id}" >Mua</button>
                     </div>
                 </div>`
                 dom.innerHTML += html
             }
+
+            let lengthData = data.length
+            for(let i =0; i<lengthData;i++){
+                let dom = document.querySelector(`.alo${i+1}`)
+                dom.addEventListener('click', function(){
+                    count++
+                    document.getElementById('count').innerHTML = count
+                    dataToLocal.push(data[i])
+                    localStorage.setItem('dataCart',JSON.stringify(dataToLocal))
+                })
+            }
+            
     </script>
 </body>
 

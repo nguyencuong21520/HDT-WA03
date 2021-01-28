@@ -5,16 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .cart{
-            width: 100px;
-            height: 100px;
-            background-color: pink;
-            border: 1px solid black;
-            box-sizing: border-box;
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing:border-box
+        }
+        .container{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .container .cart{
+            padding: 50px 10px;
+            text-align: center;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <div class="cart"></div>
+    <div class="container">
+
+    </div>
+
+    <script>
+        
+        let data = JSON.parse(localStorage.getItem('dataCart'))
+        let dom = document.querySelector('.container')
+        for(let i of data){
+            let html = `<div class="cart">
+                <img src="${i.img}" alt="">
+                <h3>${i.name}</h3>
+                <p>${i.des}</p>
+                <div class="footer">
+                    <p>${i.price}</p>
+                    <button class="alo${i.id}" >Mua</button>
+                </div>
+            </div>`
+            dom.innerHTML += html
+        }
+    </script>
 </body>
 </html>
