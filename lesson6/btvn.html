@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Bài Tập buổi 6</h1>
+
+    <script>
+        // for(let i = 51; i<100; i++){
+        //     if(i%2 == '0'){
+        //         console.log(i)
+        //     }
+        // }
+
+
+        // let a  =parseInt(prompt('nhập số a')) 
+        // let b  = parseInt(prompt('nhập số b')) 
+
+        // while(a!=b){
+        //     if (a>b){
+        //         a = a-b
+        //     }
+        //     else {
+        //         b = b-a
+        //     }
+        //     console.log(a)
+        // }
+        // let checkNt = (num) => {
+        //     if (num < 2) {
+        //         return false
+        //     } else {
+        //         for (let i = 0; i < Math.sqrt(num); i++) {
+        //             if (num % i == 0) {
+        //                 return false
+        //                 break
+        //             }
+        //             return true
+        //         }
+        //     }
+        // }
+
+        // let n = parseInt(prompt('nhập số n'))
+        // if (checkNt(n)) {
+        //     console.log("day so nguyen to")
+        // } else {
+        //     console.log("day kp so nguyen to")
+
+        // }
+
+        // let isPrime = true;
+        // if (n =1){
+        //     console.log(`${n} is not a prime number`)
+        // }
+        // else if(n>1){
+        //     for (let i = 2; i < Math.sqrt(n); i++){
+        //         if(n%i ==0){
+        //             isPrime = false;
+        //             break;
+
+        //         }
+        //     }
+        //     if(isPrime){
+        //         console.log(`${n} is a prime number`)
+
+        //     }
+        //     else{
+        //         console.log(`${n} is not a prime number`)
+        //     }
+
+        // }
+        let soTien = parseInt(prompt('nhập số soTien'))
+
+        let tien = [500,200,100,50,20,10]
+
+        for(let i of tien){
+           let to = Math.floor(soTien/i) 
+           if(to>0){
+               console.log(`${to} Tờ ${i}`)
+           }
+           soTien = soTien%i
+        }
+
+    </script>
+</body>
+
+</html>

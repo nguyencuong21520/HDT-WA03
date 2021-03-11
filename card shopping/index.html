@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .card-img-top{
+            width: 80%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <form id="formTien">
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Nhập số tiền</label>
+                      <input type="text" class="form-control" name = "tien" placeholder="Số tiền">
+                    </div>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                  </form>
+            </div>
+            <div id="tien" class="col-xs-12 col-md-6">
+
+            </div>
+        </div>
+    </div>
+<script>
+    let data = [
+        {
+            menhGia : 500,
+            img: 'https://lh3.googleusercontent.com/CAr7pcNvPtrjlJa6Jfu2R_A0-S-9e3-h9Izyc4kCIzqH86_Q0zXWQnl_84zvWoPMqVDD_U8Vt4f7Wjt6Scft3nwJScR7LIegK84rBseLEy4jEOS29uT64i6r0cY_7034rj1-04ow'
+        },
+        {
+            menhGia : 200,
+            img: 'https://baoxaydung.com.vn/stores/news_dataimages/vananh/072016/06/10/100838baoxaydung_image003.jpg'
+        },
+        {
+            menhGia : 100,
+            img: 'https://upload.wikimedia.org/wikipedia/vi/a/a9/100nghins.jpg'
+        },
+        {
+            menhGia : 50,
+            img: 'https://gonatour.vn/vnt_upload/news/05_2020/tien_50000_dong_viet_nam.jpg'
+        },
+        {
+            menhGia : 20,
+            img: 'https://gonatour.vn/vnt_upload/news/05_2020/tien_20000_dong_viet_nam.jpg'
+        },
+        {
+            menhGia : 10,
+            img: 'https://image.bizlive.vn/uploaded/hoangly_tt/2015_02_24/20130827-tien09_aqgp.jpg'
+        },
+    ]
+
+    let form = document.querySelector('#formTien')
+    let htmlDom = document.querySelector('#tien')
+    htmlDom.innerHTML =''
+    form.onsubmit = (e) => {
+        e.preventDefault()
+        let soTien = form.tien.value
+        
+        for(let i of data) {
+            let to = Math.floor(soTien/i.menhGia)
+            if(to > 0){
+                let html =`  <div class="card">
+                 <img class="card-img-top" src="${i.img}" alt="Card image cap">
+                 <div class="card-body">
+                      <h5 class="card-title">${to}</h5>
+                 </div>
+               </div>`
+               htmlDom.innerHTML += html
+            }
+            soTien = soTien%i.menhGia 
+        }
+    }
+</script>
+</body>
+
+</html>
