@@ -72,7 +72,10 @@
             htmlDom.innerHTML = ''
             let soTien = form.tien.value
 
-            for (let i of data) {
+            if(isNaN(soTien)){
+                htmlDom.innerHTML = `<img src='https://picsum.photos/600/300'>`
+            }else{
+                for (let i of data) {
                 let to = Math.floor(soTien / i.menhGia)
                 if (to > 0) {
                     let html = `                <div class="card">
@@ -85,6 +88,9 @@
                 }
                 soTien = soTien % i.menhGia
             }
+            }
+
+
         }
     </script>
 </body>
