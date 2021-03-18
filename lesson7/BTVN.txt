@@ -1,0 +1,3 @@
+SignIn Câu 1: xem lại cái điều kiện check đê cho nó không in ra ra 2 lần ở phần signin 
+
+SignUp   Câu 2: là check xem email đó đã tồn tại hay chưa, nếu chưa thì lưu cái data người dùng đó vào local. Nếu rồi thì thông báo là email đã tồn tại 
