@@ -51,25 +51,30 @@
             display: block;
             height:50px !important;
         }
+        .error{
+            color:red !important;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <form action="" class="form-wrapper">
+        <form id="signIn-form" action="" class="form-wrapper">
             <h1>Đăng Nhập</h1>
             <div class="space-50"></div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Tài Khoản</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập Tài Khoản">
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                <input type="email" name="email" class="form-control"  placeholder="Nhập Tài Khoản">
+                <small id="signIn-email-error"  class="form-text text-muted error"></small>
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập Mật Khẩu">
+                <input type="password" name="password" class="form-control"  placeholder="Nhập Mật Khẩu">
+                <small id="signIn-password-error" class="form-text text-muted error"></small>
+
               </div>
-              <button type="submit" class="btn-1">Đăng Nhập</button>
+              <button  type="submit" class="btn-1">Đăng Nhập</button>
 
               <div class="space-50"></div>
               <p>Bạn chưa có tài khoản <a href="./signup.html">Đăng ký?</a></p>
@@ -91,6 +96,39 @@
         // ]
 
         // localStorage.setItem("users", JSON.stringify(users))
+
+        let formSignIn = document.querySelector('#signIn-form')
+
+        let users = JSON.parse(localStorage.getItem("users")) 
+
+        formSignIn.onsubmit = (e) => {
+            e.preventDefault()
+            
+            let email = formSignIn.email.value.trim().toLowerCase();
+            let pass = formSignIn.password.value.trim()
+
+            for(let i = 0; i < users.length; i++){
+                if(email == users[i].email){
+                    if(pass == users[i].pass){
+                        window.open("./index.html",'_blank');
+                    }
+                    else{
+                    // document.querySelector('#signIn-password-error').innerHTML = "Mật Khẩu sai"
+                    setTextError('#signIn-password-error','Mật Khẩu không đúng')
+                        
+                    }
+                }
+                else{
+                    // document.querySelector('#signIn-email-error').innerHTML = "Tài Khoản không tồn tại"
+                    setTextError('#signIn-email-error',"Tài Khoản không tồn tại")
+                }
+            }
+
+        }
+
+        let setTextError = (query,content)=>{
+            document.querySelector(query).innerHTML = content
+        }
 
     </script>
 </body>
