@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // let getdata = async ()=>{
+        //     let respond = await axios.get('https://pokeapi.co/api/v2/pokemon/ditto')
+        //     data = respond.data
+        //     console.log(data)
+        // }
+        // getdata()
+
+
+        // fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
+
+
+        let get = async ()=>{
+         let predata =await fetch('https://pokeapi.co/api/v2/pokemon/ditto')
+         let data =await predata.json()
+         console.log(data)
+        }
+        get()
+    </script>
+</body>
+
+</html>

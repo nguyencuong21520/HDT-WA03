@@ -56,6 +56,9 @@
             display: block;
             height: 50px !important;
         }
+        .red-text{
+            color:red !important;
+        }
     </style>
 </head>
 
@@ -73,15 +76,19 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Tài Khoản</label>
                 <input type="email" class="form-control" name="email" placeholder="Nhập Tài Khoản">
-                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                <small id="emailHelp" class="form-text text-muted red-text"></small>
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Mật Khẩu</label>
                 <input type="password" class="form-control" name="password" placeholder="Nhập Mật Khẩu">
+                <small id="pass" class="form-text text-muted red-text"></small>
+
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Xác Nhận Mật Khẩu</label>
                 <input type="password" class="form-control" name="cfpassword" placeholder="Nhập Mật Khẩu">
+                <small id="cfpass" class="form-text text-muted red-text"></small>
+
             </div>
             <button type="submit" class="btn-1">Đăng Ký</button>
 
@@ -99,18 +106,100 @@
             let pass = formSignUp.password.value.trim()
             let cfpass = formSignUp.cfpassword.value.trim()
 
+            
+
             let data = localStorage.getItem('users')
             if (data) {
                 var users = JSON.parse(data)
-                //do something
+
+                let arrayEmail = users.map(nhatminh => nhatminh.email)
+                let check = arrayEmail.includes(email)
+                if(check == true) {
+                    setText('#emailHelp','Email đã tồn tại')
+                }else{
+                    if(pass.length>6){
+                        if(cfpass == pass){
+                            let newUser = {
+                                name: name,
+                                email: email,
+                                pass: pass
+                            }
+                            users.push(newUser)
+                            localStorage.setItem('users', JSON.stringify(users))
+
+                        }else{
+                            setText("#cfpass","Mật khẩu phải trùng nhau")
+                        }
+
+                    }else{
+                        setText('#pass','Mật khẩu phải lớn hơn 6 kí tự')
+                    }
+                }
+                
+
             } else {
                 var users = []
-                //dosomething
+                if(pass.length>6){
+                        if(cfpass == pass){
+                            let newUser = {
+                                name: name,
+                                email: email,
+                                pass: pass
+                            }
+                            users.push(newUser)
+                            localStorage.setItem('users', JSON.stringify(users))
+
+                        }else{
+                            setText("#cfpass","Mật khẩu phải trùng nhau")
+                        }
+
+                    }else{
+                        setText('#pass','Mật khẩu phải lớn hơn 6 kí tự')
+                    }
+
             }
+
+            // data ? users = JSON.parse(data) : var users = []
+            console.log(users)
+
+            // let arrayEmail = []
+            // for(let i of users) {
+            //     arrayEmail.push(i.email)
+            // }
+
+            // console.log(arrayEmail)
+
+
+
+
+
 
 
 
         }
+
+        let setText = (query, text) => {
+            document.querySelector(query).innerText = text
+        }
+        
+        // let Validate = (condition, queryErrorTag, messageError) => {
+        //     if (condition) {
+        //         view.setText(queryErrorTag, '')
+        //         return true
+        //     } else {
+        //         view.setText(queryErrorTag, messageError)
+        //         return false
+        //     }
+        // }
+        // let allPassed = (validateResult) => {
+        //     for (let result of validateResult) {
+        //         if (!result) {
+        //             return false
+        //         }
+
+        //     }
+        //     return true
+        // }
     </script>
 </body>
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <style>
+        .card {
+            background-color: whitesmoke;
+            width: 300px;
+            text-align: center;
+            border-radius:10px;
+        }
+        .container{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+                <!-- <h2>Weather</h2>
+                <p>Hôm nay trời rét</p>
+                <img src="./icons/02d.png" alt="">
+                <h1>50</h1>
+                <p>bal bla bla bla</p>
+                <h3>Ha noi</h3> -->
+        </div>
+    </div>
+    <script>
+        let getData = async (city) =>{
+            let preData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7674da634845e7c2d8c53ab0a48b8e29`)
+            let data = await preData.json()
+         console.log(data)
+            let dom = document.querySelector('.card')
+
+            let icon = data.weather[0].icon
+            let temp = Math.floor(data.main.temp - 273.15)
+            let des = data.weather[0].description
+            let local = data.name
+
+            let html = `                <h2>Weather</h2>
+                <p>Hôm nay trời rét</p>
+                <img src="./icons/${icon}.png" alt="">
+                <h1>${temp}</h1>
+                <p>${des}</p>
+                <h3>${local}</h3>`
+
+                dom.innerHTML = html
+        }
+
+       let city =JSON.parse(localStorage.getItem('city')) 
+        getData(city)
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // localstorage chỉ lưu được dạng data là string
+
+        // để chuyển sang string | JSON.stringify("Cái mà chúng ta muốn chuyển")
+        // để chuyển về dạng gốc (array, object)  | JSON.parse(cái mà chúng ta muốn chuyển)
+
+        let arr = [1,2,3,5]
+
+        // lưu vào local
+        localStorage.setItem('test', JSON.stringify(arr))
+
+        // lấy ra
+        let preData = localStorage.getItem('test')
+        let data = JSON.parse(preData)
+        console.log(preData)
+        console.log(data)
+        
+    </script>
+</body>
+</html>
