@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.product-container {
+  width: 70%;
+}
+.product-container ul {
+  list-style: none;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product-container ul li {
+    margin-top: 10px;
+  width: 20%;
+  padding: 10px 10px;
+  border: solid 1px #eee;
+  padding-top: 0px;
+  background-color: white;
+}
+.product-container ul li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 8px 2px 50px rgb(235, 231, 231);
+}
+.top-product img {
+  background-position: center;
+  background-size: 100%;
+  padding: 10px;
+  transition: 0.25s;
+}
+.top-product img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+.top-product {
+  position: relative;
+}
+.bot-product h3 {
+  margin: 10px 0px;
+}
+.product-container .sticker {
+  background-image: url(./img/sticker-giam-gia.png);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 45px;
+  height: 40px;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.product-container .sticker span {
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+.bot-product .price-box {
+  display: flex;
+  margin: 10px 0px;
+}
+.bot-product .price-box .new-price {
+  font-size: 17px;
+  font-weight: 700;
+  color: #e11b1e;
+}
+.bot-product .price-box .old-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: #716b6b;
+  text-decoration: line-through;
+  margin-left: 25px;
+}
+.bot-product .promotion-product {
+  margin: 10px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+.bot-product .buy-btn-box button {
+  width: 100%;
+  border: none;
+  padding: 5px 0px;
+  margin-top: 20px;
+  color: white;
+  background-color: #e11b1e;
+  transition: 0.5s;
+}
+.bot-product .buy-btn-box button:hover {
+  transition: 0.5s;
+  background-color: #a8090c;
+}
+.rating_product i{
+    color: gray;
+}
+.rating-checked{
+    color: orange !important;
+}
